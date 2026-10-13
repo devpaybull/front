@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/page-placeholder";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin/_app/")({
-  staticData: { title: "Страница" },
-  component: PagePlaceholder,
+  beforeLoad: () => {
+    throw redirect({ to: "/admin/inventory" });
+  },
 });
