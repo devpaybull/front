@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/page-placeholder";
+import { ReferralTab } from "@/features/users/profile/tabs/referral-tab";
 
 export const Route = createFileRoute("/admin/_app/users/$userId/referral")({
-  staticData: { title: "Страница" },
-  component: PagePlaceholder,
+  component: function Tab() {
+    const { userId } = Route.useParams();
+    return <ReferralTab userId={userId} />;
+  },
 });
