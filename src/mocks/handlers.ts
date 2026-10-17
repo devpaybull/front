@@ -1,6 +1,7 @@
 import { authHandlers } from "./auth-handlers";
 import { inventoryHandlers } from "./inventory-handlers";
 import { invitesHandlers } from "./invites-handlers";
+import { userTabsHandlers } from "./user-tabs-handlers";
 import { usersHandlers } from "./users-handlers";
 
 export const handlers = [
@@ -8,4 +9,5 @@ export const handlers = [
   ...inventoryHandlers,
   ...invitesHandlers,
   ...usersHandlers,
+  ...userTabsHandlers,
 ];
