@@ -1,4 +1,5 @@
 import { authHandlers } from "./auth-handlers";
+import { debtsHandlers } from "./debts-handlers";
 import { depositsHandlers } from "./deposits-handlers";
 import { inventoryHandlers } from "./inventory-handlers";
 import { invitesHandlers } from "./invites-handlers";
@@ -14,4 +15,5 @@ export const handlers = [
   ...userTabsHandlers,
   ...depositsHandlers,
   ...withdrawalsHandlers,
+  ...debtsHandlers,
 ];
