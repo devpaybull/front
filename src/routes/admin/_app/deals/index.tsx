@@ -1,7 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/page-placeholder";
+import { useCallback } from "react";
+import { dealsQuery } from "@/features/deals/api";
+import { DealsListPage } from "@/features/deals/deals-list-page";
+import {
+  type DealListSearch,
+  dealListSearchSchema,
+} from "@/features/deals/schemas";
+import { queryClient } from "@/lib/query-client";
 
 export const Route = createFileRoute("/admin/_app/deals/")({
-  staticData: { title: "Сделки" },
-  component: PagePlaceholder,
+  staticData: { title: "Сделки", subtitle: "Управление операциями" },
+  validateSearch: dealListSearchSchema,
+  loaderDeps: ({ search }) => search,
+  loader: ({ deps }) => {
+    void queryClient.prefetchQuery(dealsQuery(deps));
+  },
+  component: DealsRoute,
 });
+
+function DealsRoute() {
+  const search = Route.useSearch();
+  const navigate = Route.useNavigate();
+  const onSearch = useCallback(
+    (patch: Partial<DealListSearch>) =>
+      navigate({ search: (prev) => ({ ...prev, ...patch }), replace: true }),
+    [navigate],
+  );
+  return <DealsListPage kind="deal" search={search} onSearch={onSearch} />;
+}
