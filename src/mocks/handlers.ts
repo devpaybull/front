@@ -5,6 +5,7 @@ import { debtsHandlers } from "./debts-handlers";
 import { depositsHandlers } from "./deposits-handlers";
 import { inventoryHandlers } from "./inventory-handlers";
 import { invitesHandlers } from "./invites-handlers";
+import { merchantRequestsHandlers } from "./merchant-requests-handlers";
 import { merchantsHandlers } from "./merchants-handlers";
 import { messagesHandlers } from "./messages-handlers";
 import { userTabsHandlers } from "./user-tabs-handlers";
@@ -24,4 +25,5 @@ export const handlers = [
   ...dealsHandlers,
   ...merchantsHandlers,
   ...counterpartiesHandlers,
+  ...merchantRequestsHandlers,
 ];
