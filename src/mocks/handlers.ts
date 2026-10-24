@@ -1,3 +1,4 @@
+import { accountHandlers } from "./account-handlers";
 import { authHandlers } from "./auth-handlers";
 import { banksHandlers } from "./banks-handlers";
 import { cascadesHandlers } from "./cascades-handlers";
@@ -32,4 +33,5 @@ export const handlers = [
   ...cascadesHandlers,
   ...banksHandlers,
   ...settingsHandlers,
+  ...accountHandlers,
 ];
