@@ -10,6 +10,7 @@ import { invitesHandlers } from "./invites-handlers";
 import { merchantRequestsHandlers } from "./merchant-requests-handlers";
 import { merchantsHandlers } from "./merchants-handlers";
 import { messagesHandlers } from "./messages-handlers";
+import { settingsHandlers } from "./settings-handlers";
 import { userTabsHandlers } from "./user-tabs-handlers";
 import { usersHandlers } from "./users-handlers";
 import { withdrawalsHandlers } from "./withdrawals-handlers";
@@ -30,4 +31,5 @@ export const handlers = [
   ...merchantRequestsHandlers,
   ...cascadesHandlers,
   ...banksHandlers,
+  ...settingsHandlers,
 ];
